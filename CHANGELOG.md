@@ -1,15 +1,15 @@
-# 0.3.5 -- new eth filter ID changes
+# 0.3.5 -- new vap filter ID changes
 
 1. Adds padded quantities
 2. Fixed problem where number ID 1 for filter ID encodes to 0x1, when it should be 0x01 (with padding)
-3. Methods affected: `eth.getFilterChanges` `eth.uninstallFilter` `eth.getFilterLogs`
+3. Methods affected: `vap.getFilterChanges` `vap.uninstallFilter` `vap.getFilterLogs`
 
-# 0.3.4 -- added new ethjs-format
+# 0.3.4 -- added new vapjs-format
 
 1. Unhandled promise rejection fixed, and is no longer being swolloed.
-2. ethjs-rpc bump to 0.1.9
+2. vapjs-rpc bump to 0.1.9
 
-# 0.2.6 -- added new ethjs-format
+# 0.2.6 -- added new vapjs-format
 
 1. no longer padds quantity hex values, as per standard.
 
@@ -17,7 +17,7 @@
 
 # 0.2.3 -- package updates
 
-1. Update ethjs-rpc, handle 405 errors better
+1. Update vapjs-rpc, handle 405 errors better
 
 # 0.2.1 -- handle non RPC errors better
 
@@ -59,7 +59,7 @@
 
 # 0.1.1 -- new packages
 
-1. new ethjs-format
+1. new vapjs-format
 2. more docs
 
 # 0.0.5 -- refactor
@@ -77,14 +77,14 @@
 
 # 0.0.3 -- options with debug logging and other features
 
-1. added low level complete logging `new Eth(provider, { debug: false, logger: console, jsonSpace: 0 })`
+1. added low level complete logging `new Vap(provider, { debug: false, logger: console, jsonSpace: 0 })`
 2. more tests
 
-# 0.0.2 -- handle eth_getFilterChanges during Block and Pending Tx filter
+# 0.0.2 -- handle vap_getFilterChanges during Block and Pending Tx filter
 
 1. handle getFilterChanges during BlockFilter and PendingTxFilter.
 
-# 0.0.1 -- ethjs-query
+# 0.0.1 -- vapjs-query
 
 1. Basic testing
 2. Basic docs

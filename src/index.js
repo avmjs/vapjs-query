@@ -1,32 +1,32 @@
-const format = require('ethjs-format');
-const EthRPC = require('ethjs-rpc');
+const format = require('vapjs-format');
+const VapRPC = require('vapjs-rpc');
 const promiseToCallback = require('promise-to-callback');
 
-module.exports = Eth;
+module.exports = Vap;
 
-function Eth(provider, options) {
+function Vap(provider, options) {
   const self = this;
   const optionsObject = options || {};
 
-  if (!(this instanceof Eth)) { throw new Error('[ethjs-query] the Eth object requires the "new" flag in order to function normally (i.e. `const eth = new Eth(provider);`).'); }
-  if (typeof provider !== 'object') { throw new Error(`[ethjs-query] the Eth object requires that the first input 'provider' must be an object, got '${typeof provider}' (i.e. 'const eth = new Eth(provider);')`); }
+  if (!(this instanceof Vap)) { throw new Error('[vapjs-query] the Vap object requires the "new" flag in order to function normally (i.e. `const vap = new Vap(provider);`).'); }
+  if (typeof provider !== 'object') { throw new Error(`[vapjs-query] the Vap object requires that the first input 'provider' must be an object, got '${typeof provider}' (i.e. 'const vap = new Vap(provider);')`); }
 
   self.options = Object.assign({
     debug: optionsObject.debug || false,
     logger: optionsObject.logger || console,
     jsonSpace: optionsObject.jsonSpace || 0,
   });
-  self.rpc = new EthRPC(provider);
+  self.rpc = new VapRPC(provider);
   self.setProvider = self.rpc.setProvider;
 }
 
-Eth.prototype.log = function log(message) {
+Vap.prototype.log = function log(message) {
   const self = this;
-  if (self.options.debug) self.options.logger.log(`[ethjs-query log] ${message}`);
+  if (self.options.debug) self.options.logger.log(`[vapjs-query log] ${message}`);
 };
 
 Object.keys(format.schema.methods).forEach((rpcMethodName) => {
-  Object.defineProperty(Eth.prototype, rpcMethodName.replace('eth_', ''), {
+  Object.defineProperty(Vap.prototype, rpcMethodName.replace('vap_', ''), {
     enumerable: true,
     value: generateFnFor(rpcMethodName, format.schema.methods[rpcMethodName]),
   });
@@ -39,7 +39,7 @@ function generateFnFor(rpcMethodName, methodObject) {
     let inputError = null; // eslint-disable-line
     const self = this;
     const args = [].slice.call(arguments); // eslint-disable-line
-    const protoMethodName = rpcMethodName.replace('eth_', ''); // eslint-disable-line
+    const protoMethodName = rpcMethodName.replace('vap_', ''); // eslint-disable-line
 
     if (args.length > 0 && typeof args[args.length - 1] === 'function') {
       callback = args.pop();
@@ -58,10 +58,10 @@ function generateFnFor(rpcMethodName, methodObject) {
     async function performCall() {
       // validate arg length
       if (args.length < methodObject[2]) {
-        throw new Error(`[ethjs-query] method '${protoMethodName}' requires at least ${methodObject[2]} input (format type ${methodObject[0][0]}), ${args.length} provided. For more information visit: https://github.com/ethereum/wiki/wiki/JSON-RPC#${rpcMethodName.toLowerCase()}`);
+        throw new Error(`[vapjs-query] method '${protoMethodName}' requires at least ${methodObject[2]} input (format type ${methodObject[0][0]}), ${args.length} provided. For more information visit: https://github.com/vaporyco/wiki/wiki/JSON-RPC#${rpcMethodName.toLowerCase()}`);
       }
       if (args.length > methodObject[0].length) {
-        throw new Error(`[ethjs-query] method '${protoMethodName}' requires at most ${methodObject[0].length} params, ${args.length} provided '${JSON.stringify(args, null, self.options.jsonSpace)}'. For more information visit: https://github.com/ethereum/wiki/wiki/JSON-RPC#${rpcMethodName.toLowerCase()}`);
+        throw new Error(`[vapjs-query] method '${protoMethodName}' requires at most ${methodObject[0].length} params, ${args.length} provided '${JSON.stringify(args, null, self.options.jsonSpace)}'. For more information visit: https://github.com/vaporyco/wiki/wiki/JSON-RPC#${rpcMethodName.toLowerCase()}`);
       }
 
       // set default block
@@ -75,7 +75,7 @@ function generateFnFor(rpcMethodName, methodObject) {
         inputs = format.formatInputs(rpcMethodName, args);
         this.log(`method formatting success for '${protoMethodName}' with formatted result: ${JSON.stringify(inputs, null, this.options.jsonSpace)}`);
       } catch (formattingError) {
-        throw new Error(`[ethjs-query] while formatting inputs '${JSON.stringify(args, null, this.options.jsonSpace)}' for method '${protoMethodName}' error: ${formattingError}`);
+        throw new Error(`[vapjs-query] while formatting inputs '${JSON.stringify(args, null, this.options.jsonSpace)}' for method '${protoMethodName}' error: ${formattingError}`);
       }
 
       // perform rpc call
@@ -88,7 +88,7 @@ function generateFnFor(rpcMethodName, methodObject) {
         this.log(`method formatting success for '${protoMethodName}' formatted result: ${JSON.stringify(methodOutputs, null, this.options.jsonSpace)}`);
         return methodOutputs;
       } catch (outputFormattingError) {
-        const outputError = new Error(`[ethjs-query] while formatting outputs from RPC '${JSON.stringify(result, null, this.options.jsonSpace)}' for method '${protoMethodName}' ${outputFormattingError}`);
+        const outputError = new Error(`[vapjs-query] while formatting outputs from RPC '${JSON.stringify(result, null, this.options.jsonSpace)}' for method '${protoMethodName}' ${outputFormattingError}`);
         throw outputError;
       }
     }
