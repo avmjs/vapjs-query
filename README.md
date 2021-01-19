@@ -1,32 +1,32 @@
-## ethjs-query
+## vapjs-query
 
 <div>
   <!-- Dependency Status -->
-  <a href="https://david-dm.org/ethjs/ethjs-query">
-    <img src="https://david-dm.org/ethjs/ethjs-query.svg"
+  <a href="https://david-dm.org/vapjs/vapjs-query">
+    <img src="https://david-dm.org/vapjs/vapjs-query.svg"
     alt="Dependency Status" />
   </a>
 
   <!-- devDependency Status -->
-  <a href="https://david-dm.org/ethjs/ethjs-query#info=devDependencies">
-    <img src="https://david-dm.org/ethjs/ethjs-query/dev-status.svg" alt="devDependency Status" />
+  <a href="https://david-dm.org/vapjs/vapjs-query#info=devDependencies">
+    <img src="https://david-dm.org/vapjs/vapjs-query/dev-status.svg" alt="devDependency Status" />
   </a>
 
   <!-- Build Status -->
-  <a href="https://travis-ci.org/ethjs/ethjs-query">
-    <img src="https://travis-ci.org/ethjs/ethjs-query.svg"
+  <a href="https://travis-ci.org/vapjs/vapjs-query">
+    <img src="https://travis-ci.org/vapjs/vapjs-query.svg"
     alt="Build Status" />
   </a>
 
   <!-- NPM Version -->
-  <a href="https://www.npmjs.org/package/ethjs-query">
-    <img src="http://img.shields.io/npm/v/ethjs-query.svg"
+  <a href="https://www.npmjs.org/package/vapjs-query">
+    <img src="http://img.shields.io/npm/v/vapjs-query.svg"
     alt="NPM version" />
   </a>
 
   <!-- Test Coverage -->
-  <a href="https://coveralls.io/r/ethjs/ethjs-query">
-    <img src="https://coveralls.io/repos/github/ethjs/ethjs-query/badge.svg" alt="Test Coverage" />
+  <a href="https://coveralls.io/r/vapjs/vapjs-query">
+    <img src="https://coveralls.io/repos/github/vapjs/vapjs-query/badge.svg" alt="Test Coverage" />
   </a>
 
   <!-- Javascript Style -->
@@ -37,26 +37,26 @@
 
 <br />
 
-A simple wrapper around the `eth-query` module with formatting for numbers, hex value and data structures.
+A simple wrapper around the `vap-query` module with formatting for numbers, hex value and data structures.
 
 ## Install
 
 ```
-npm install --save ethjs-query
+npm install --save vapjs-query
 ```
 
 ## Usage
 
 ```js
-const HttpProvider = require('ethjs-provider-http');
-const Eth = require('ethjs-query');
-const eth = new Eth(new HttpProvider('http://localhost:8545'));
+const HttpProvider = require('vapjs-provider-http');
+const Vap = require('vapjs-query');
+const vap = new Vap(new HttpProvider('http://localhost:8545'));
 
-eth.getBalance('0x407d73d8a49eeb85d32cf465507dd71d507100c1', cb);
+vap.getBalance('0x407d73d8a49eeb85d32cf465507dd71d507100c1', cb);
 
 // result null <BigNumber ...>
 
-eth.sendTransaction({
+vap.sendTransaction({
   from: '0x407d73d8a49eeb85d32cf465507dd71d507100c1',
   to: '0x987d73d8a49eeb85d32cf462207dd71d50710033',
   gas: 300000,
@@ -68,32 +68,32 @@ eth.sendTransaction({
 
 ## About
 
-A simple wrapper around the `eth-query` module using the `ethjs-format` as a formatting layer.
+A simple wrapper around the `vap-query` module using the `vapjs-format` as a formatting layer.
 
 ## Debugging Options
 
-`ethjs-query` comes equip with a full debug options for all data inputs and outputs.
+`vapjs-query` comes equip with a full debug options for all data inputs and outputs.
 
 ```js
-const Eth = require('ethjs-query');
-const eth = new Eth(providerObject, { debug: true, logger: console, jsonSpace: 0 });
+const Vap = require('vapjs-query');
+const vap = new Vap(providerObject, { debug: true, logger: console, jsonSpace: 0 });
 
-eth.accounts(cb);
+vap.accounts(cb);
 
 /* result
-[ethjs-query 2016-11-27T19:37:54.917Z] attempting method accounts with params [null]
-[ethjs-query 2016-11-27T19:37:54.917Z] [method 'accounts'] callback provided: true
-[ethjs-query 2016-11-27T19:37:54.917Z] [method 'accounts'] attempting input formatting of 0 inputs
-[ethjs-query 2016-11-27T19:37:54.917Z] [method 'accounts'] formatted inputs: []
-[ethjs-query 2016-11-27T19:37:54.917Z] [method 'accounts'] attempting query with formatted inputs...
-[ethjs-query 2016-11-27T19:37:54.919Z] [method 'accounts'] callback success, attempting formatting of raw outputs: ["0xb88643569c19d05dc67b960f91d9d696eebf808e","0xf...]
-[ethjs-query 2016-11-27T19:37:54.919Z] [method 'accounts'] formatted outputs: ["0xb88643569c19d05dc67b960f91d9d696eebf808e","0xf...]
+[vapjs-query 2016-11-27T19:37:54.917Z] attempting method accounts with params [null]
+[vapjs-query 2016-11-27T19:37:54.917Z] [method 'accounts'] callback provided: true
+[vapjs-query 2016-11-27T19:37:54.917Z] [method 'accounts'] attempting input formatting of 0 inputs
+[vapjs-query 2016-11-27T19:37:54.917Z] [method 'accounts'] formatted inputs: []
+[vapjs-query 2016-11-27T19:37:54.917Z] [method 'accounts'] attempting query with formatted inputs...
+[vapjs-query 2016-11-27T19:37:54.919Z] [method 'accounts'] callback success, attempting formatting of raw outputs: ["0xb88643569c19d05dc67b960f91d9d696eebf808e","0xf...]
+[vapjs-query 2016-11-27T19:37:54.919Z] [method 'accounts'] formatted outputs: ["0xb88643569c19d05dc67b960f91d9d696eebf808e","0xf...]
 */
 ```
 
 ## Supported Methods
 
-`ethjs-query` supports all Ethereum spec RPC methods.
+`vapjs-query` supports all Vapory spec RPC methods.
 
 ```
 getBalance
@@ -147,32 +147,32 @@ Please help better the ecosystem by submitting issues and pull requests to defau
 
 ## Guides
 
-You'll find more detailed information on using `ethjs-query` and tailoring it to your needs in our guides:
+You'll find more detailed information on using `vapjs-query` and tailoring it to your needs in our guides:
 
 - [User guide](docs/user-guide.md) - Usage, configuration, FAQ and complementary tools.
-- [Developer guide](docs/developer-guide.md) - Contributing to `ethjs-query` and writing your own code and coverage.
+- [Developer guide](docs/developer-guide.md) - Contributing to `vapjs-query` and writing your own code and coverage.
 
 ## Help out
 
 There is always a lot of work to do, and will have many rules to maintain. So please help out in any way that you can:
 
-- Create, enhance, and debug ethjs rules (see our guide to ["Working on rules"](./github/CONTRIBUTING.md)).
+- Create, enhance, and debug vapjs rules (see our guide to ["Working on rules"](./github/CONTRIBUTING.md)).
 - Improve documentation.
 - Chime in on any open issue or pull request.
-- Open new issues about your ideas for making `ethjs-query` better, and pull requests to show us how your idea works.
+- Open new issues about your ideas for making `vapjs-query` better, and pull requests to show us how your idea works.
 - Add new tests to *absolutely anything*.
 - Create or contribute to ecosystem tools, like modules for encoding or contracts.
 - Spread the word.
 
 Please consult our [Code of Conduct](CODE_OF_CONDUCT.md) docs before helping out.
 
-We communicate via [issues](https://github.com/ethjs/ethjs-query/issues) and [pull requests](https://github.com/ethjs/ethjs-query/pulls).
+We communicate via [issues](https://github.com/vapjs/vapjs-query/issues) and [pull requests](https://github.com/vapjs/vapjs-query/pulls).
 
 ## Important documents
 
 - [Changelog](CHANGELOG.md)
 - [Code of Conduct](CODE_OF_CONDUCT.md)
-- [License](https://raw.githubusercontent.com/ethjs/ethjs-query/master/LICENSE)
+- [License](https://raw.githubusercontent.com/vapjs/vapjs-query/master/LICENSE)
 
 ## Licence
 

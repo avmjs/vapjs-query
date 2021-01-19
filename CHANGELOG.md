@@ -1,6 +1,6 @@
 # 0.1.1 -- new packages
 
-1. new ethjs-format
+1. new vapjs-format
 2. more docs
 
 # 0.0.5 -- refactor
@@ -25,7 +25,7 @@
 
 1. handle getFilterChanges during BlockFilter and PendingTxFilter.
 
-# 0.0.1 -- ethjs-query
+# 0.0.1 -- vapjs-query
 
 1. Basic testing
 2. Basic docs
