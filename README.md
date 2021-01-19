@@ -1,26 +1,26 @@
-## ethjs-query
+## vapjs-query
 
 <div>
   <!-- Dependency Status -->
-  <a href="https://david-dm.org/SilentCicero/ethjs-query">
-    <img src="https://david-dm.org/SilentCicero/ethjs-query.svg"
+  <a href="https://david-dm.org/SilentCicero/vapjs-query">
+    <img src="https://david-dm.org/SilentCicero/vapjs-query.svg"
     alt="Dependency Status" />
   </a>
 
   <!-- devDependency Status -->
-  <a href="https://david-dm.org/SilentCicero/ethjs-query#info=devDependencies">
-    <img src="https://david-dm.org/SilentCicero/ethjs-query/dev-status.svg" alt="devDependency Status" />
+  <a href="https://david-dm.org/SilentCicero/vapjs-query#info=devDependencies">
+    <img src="https://david-dm.org/SilentCicero/vapjs-query/dev-status.svg" alt="devDependency Status" />
   </a>
 
   <!-- Build Status -->
-  <a href="https://travis-ci.org/SilentCicero/ethjs-query">
-    <img src="https://travis-ci.org/SilentCicero/ethjs-query.svg"
+  <a href="https://travis-ci.org/SilentCicero/vapjs-query">
+    <img src="https://travis-ci.org/SilentCicero/vapjs-query.svg"
     alt="Build Status" />
   </a>
 
   <!-- NPM Version -->
-  <a href="https://www.npmjs.org/package/ethjs-query">
-    <img src="http://img.shields.io/npm/v/ethjs-query.svg"
+  <a href="https://www.npmjs.org/package/vapjs-query">
+    <img src="http://img.shields.io/npm/v/vapjs-query.svg"
     alt="NPM version" />
   </a>
 
@@ -32,25 +32,25 @@
 
 <br />
 
-A simple wrapper around the `eth-query` module with formatting for numbers, hex value and data structures.
+A simple wrapper around the `vap-query` module with formatting for numbers, hex value and data structures.
 
 ## Install
 
 ```
-npm install --save ethjs-query
+npm install --save vapjs-query
 ```
 
 ## Usage
 
 ```js
-const Eth = require('ethjs-query');
-const eth = new Eth(providerObject);
+const Vap = require('vapjs-query');
+const vap = new Vap(providerObject);
 
-eth.getBalance('0x407d73d8a49eeb85d32cf465507dd71d507100c1', cb);
+vap.getBalance('0x407d73d8a49eeb85d32cf465507dd71d507100c1', cb);
 
 // result null <BigNumber ...>
 
-eth.sendTransaction({
+vap.sendTransaction({
   from: '0x407d73d8a49eeb85d32cf465507dd71d507100c1',
   to: '0x987d73d8a49eeb85d32cf462207dd71d50710033',
   gas: 300000,
@@ -62,9 +62,9 @@ eth.sendTransaction({
 
 ## About
 
-A simple wrapper around the `eth-query` module using the `ethjs-format` as a formatting layer.
+A simple wrapper around the `vap-query` module using the `vapjs-format` as a formatting layer.
 
-## Supported Methods
+## Supported Mvapods
 
 ```
 getBalance
@@ -114,7 +114,7 @@ submitHashrate
 
 ## Contributing
 
-Please help better the ecosystem by submitting issues and pull requests to default. We need all the help we can get to build the absolute best linting standards and utilities. We follow the AirBigNumberB linting standard. Please read more about contributing to `ethjs-query` in the `CONTRIBUTING.md`.
+Please help better the ecosystem by submitting issues and pull requests to default. We need all the help we can get to build the absolute best linting standards and utilities. We follow the AirBigNumberB linting standard. Please read more about contributing to `vapjs-query` in the `CONTRIBUTING.md`.
 
 <!--
 ## Guides
@@ -139,13 +139,13 @@ There is always a lot of work to do, and will have many rules to maintain. So pl
 
 Please consult our [Code of Conduct](CODE_OF_CONDUCT.md) docs before helping out.
 
-We communicate via [issues](https://github.com/SilentCicero/ethjs-query/issues) and [pull requests](https://github.com/SilentCicero/ethjs-query/pulls).
+We communicate via [issues](https://github.com/SilentCicero/vapjs-query/issues) and [pull requests](https://github.com/SilentCicero/vapjs-query/pulls).
 
 ## Important documents
 
 - [Changelog](CHANGELOG.md)
 - [Code of Conduct](CODE_OF_CONDUCT.md)
-- [License](https://raw.githubusercontent.com/SilentCicero/ethjs-query/master/LICENSE)
+- [License](https://raw.githubusercontent.com/SilentCicero/vapjs-query/master/LICENSE)
 
 ## Licence
 

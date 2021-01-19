@@ -1,7 +1,8 @@
 {
-  "name": "ethjs-query",
+  "name": "vapjs-query",
+  "namespace": "vapjs",
   "version": "0.0.2",
-  "description": "A simple query layer for the Ethereum RPC.",
+  "description": "A simple query layer for the Vapory RPC.",
   "main": "./src/index.js",
   "scripts": {
     "start": "npm test",
@@ -16,10 +17,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/silentcicero/ethjs-query.git"
+    "url": "git+ssh://git@github.com/vapjs/vapjs-query.git"
   },
   "keywords": [
-    "ethereum",
+    "Vapory",
     "query",
     "rpc",
     "web3"
@@ -31,12 +32,12 @@
   "author": "Nick Dodson <nick.dodson@consensys.net>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/silentcicero/ethjs-query/issues"
+    "url": "https://github.com/vapjs/vapjs-query/issues"
   },
-  "homepage": "https://github.com/silentcicero/ethjs-query#readme",
+  "homepage": "https://github.com/vapjs/vapjs-query#readme",
   "dependencies": {
-    "eth-query": "2.1.0",
-    "ethjs-format": "0.0.6"
+    "vap-query": "2.1.2",
+    "vapjs-format": "0.0.6"
   },
   "devDependencies": {
     "babel-eslint": "7.1.0",
@@ -48,9 +49,9 @@
     "eslint-plugin-import": "1.8.0",
     "eslint-plugin-jsx-a11y": "1.2.0",
     "eslint-plugin-react": "5.1.1",
-    "ethereumjs-testrpc": "^3.0.2",
-    "ethjs-abi": "0.0.1",
-    "ethjs-util": "0.0.1",
+    "vaporyjs-testrpc": "^3.0.0",
+    "vapjs-abi": "0.2.1",
+    "vapjs-util": "0.1.4",
     "lint-staged": "1.0.1",
     "mocha": "3.2.0",
     "pre-commit": "1.1.3"
