@@ -1,15 +1,15 @@
-const Query = require('eth-query');
-const format = require('ethjs-format');
+const Query = require('vap-query');
+const format = require('vapjs-format');
 
-module.exports = Eth;
+module.exports = Vap;
 
 function log(debug, logger, message) {
-  if (debug) logger.log(`[ethjs-query ${(new Date()).toISOString()}] ${message}`);
+  if (debug) logger.log(`[vapjs-query ${(new Date()).toISOString()}] ${message}`);
 }
 
-function Eth(provider, options) {
-  if (!(this instanceof Eth)) { throw new Error('the Eth object requires the "new" flag in order to function normally (i.e. `const eth = new Eth(provider);`).'); }
-  if (typeof provider !== 'object') { throw new Error(`the Eth object requires that the first input 'provider' must be an object, got '${typeof provider}' (i.e. 'const eth = new Eth(provider);')`); }
+function Vap(provider, options) {
+  if (!(this instanceof Vap)) { throw new Error('the Vap object requires the "new" flag in order to function normally (i.e. `const vap = new Vap(provider);`).'); }
+  if (typeof provider !== 'object') { throw new Error(`the Vap object requires that the first input 'provider' must be an object, got '${typeof provider}' (i.e. 'const vap = new Vap(provider);')`); }
 
   const self = this;
   const optionsObject = options || {};
@@ -24,13 +24,13 @@ function Eth(provider, options) {
 
 Object.keys(format.schema.methods).forEach((rpcMethodName) => {
   const methodObject = format.schema.methods[rpcMethodName];
-  Object.defineProperty(Eth.prototype, rpcMethodName.replace('eth_', ''), {
+  Object.defineProperty(Vap.prototype, rpcMethodName.replace('vap_', ''), {
     enumerable: true,
     value: generateFnFor(methodObject[3] || 1, rpcMethodName), // eslint-disable-line
   });
 });
 
-Eth.prototype.makeQuery = function (method, args) { // eslint-disable-line
+Vap.prototype.makeQuery = function (method, args) { // eslint-disable-line
   const self = this;
 
   self.query[method].apply(self.query, args);
@@ -45,7 +45,7 @@ function generateFnFor(length, method) {
     const minimumArgs = Number(format.schema.methods[method][2]);
     const maximumArgs = format.schema.methods[method][0].length;
     const args = [].slice.call(arguments); // eslint-disable-line
-    const queryMethod = method.replace('eth_', ''); // eslint-disable-line
+    const queryMethod = method.replace('vap_', ''); // eslint-disable-line
 
     log(debug, logger, `attempting method ${queryMethod} with params ${JSON.stringify(args, self.options.jsonSpace)}`);
 
@@ -56,11 +56,11 @@ function generateFnFor(length, method) {
     }
 
     if (args.length < minimumArgs) {
-      throw new Error(`method '${queryMethod}' requires at least ${minimumArgs} input (format type ${format.schema.methods[method][0][0]}), ${args.length} provided. For more information visit: https://github.com/ethereum/wiki/wiki/JSON-RPC#${method.toLowerCase()}`);
+      throw new Error(`method '${queryMethod}' requires at least ${minimumArgs} input (format type ${format.schema.methods[method][0][0]}), ${args.length} provided. For more information visit: https://github.com/vaporyco/wiki/wiki/JSON-RPC#${method.toLowerCase()}`);
     }
 
     if (args.length > maximumArgs) {
-      throw new Error(`method '${queryMethod}' requires at most ${maximumArgs} params, ${args.length} provided '${JSON.stringify(args)}'. For more information visit: https://github.com/ethereum/wiki/wiki/JSON-RPC#${method.toLowerCase()}`);
+      throw new Error(`method '${queryMethod}' requires at most ${maximumArgs} params, ${args.length} provided '${JSON.stringify(args)}'. For more information visit: https://github.com/vaporyco/wiki/wiki/JSON-RPC#${method.toLowerCase()}`);
     }
 
     log(debug, logger, `[method '${queryMethod}'] attempting input formatting of ${args.length} inputs`);
