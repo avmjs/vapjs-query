@@ -120,7 +120,7 @@
     }
   },
   "dependencies": {
-    "vapjs-format": "0.2.7",
+    "vapjs-format": "0.2.6",
     "vapjs-rpc": "0.2.0",
     "promise-to-callback": "^1.0.0"
   },
@@ -170,7 +170,7 @@
     "eslint-plugin-jsx-a11y": "1.2.0",
     "eslint-plugin-react": "5.1.1",
     "vapjs-abi": "0.0.1",
-    "ganache-core": "^2.1.0",
+    "@moxiesuite/ganache-core": "2.1.0",
     "istanbul": "0.4.5",
     "lint-staged": "1.0.1",
     "mocha": "3.2.0",

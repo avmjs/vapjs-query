@@ -3,7 +3,7 @@ const Vap = require('../index.js');
 const Vap2 = require('../index.js');
 const assert = require('chai').assert;
 const util = require('vapjs-util');
-const GanacheCore = require('ganache-core');
+const GanacheCore = require('@moxiesuite/ganache-core');
 const BigNumber = require('bn.js');
 const abi = require('vapjs-abi');
 
