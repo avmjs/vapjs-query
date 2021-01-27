@@ -55,7 +55,7 @@ function generateFnFor(rpcMethodName, methodObject) {
     // only return promise if no callback provided
     return promise;
 
-    async function performCall() {
+    async function performCall() { // eslint-disable-line
       // validate arg length
       if (args.length < methodObject[2]) {
         throw new Error(`[vapjs-query] method '${protoMethodName}' requires at least ${methodObject[2]} input (format type ${methodObject[0][0]}), ${args.length} provided. For more information visit: https://github.com/vaporyco/wiki/wiki/JSON-RPC#${rpcMethodName.toLowerCase()}`);

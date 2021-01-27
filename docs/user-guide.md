@@ -143,7 +143,7 @@ Error handling is done through function callbacks or promised catches.
 
   1. lighter than alternatives (BigNumber.js)
   2. faster than most alternatives, see [benchmarks](https://github.com/indutny/bn.js/issues/89)
-  3. used by the Vapory foundation across all [`vaporyjs`](https://github.com/vaporycojs) repositories
+  3. used by the Vapory foundation across all [`vaporyjs`](https://github.com/vaporyjs) repositories
   4. is already used by a critical JS dependency of many vapory packages, see package [`elliptic`](https://github.com/indutny/elliptic)
   5. purposefully **does not support decimals or floats numbers** (for greater precision), remember, the Vapory blockchain cannot and will not support float values or decimal numbers.
 
@@ -187,13 +187,13 @@ vapjs-query.min.js  79.4 kB       0  [emitted]  main
 
 ### Foundation
  - [web3.js](https://github.com/vaporyco/web3.js) -- the original Vapory JS swiss army knife **Vapory Foundation**
- - [vaporyjs](https://github.com/vaporycojs) -- critical vapory javascript infrastructure **Vapory Foundation**
+ - [vaporyjs](https://github.com/vaporyjs) -- critical vapory javascript infrastructure **Vapory Foundation**
  - [browser-solidity](https://vaporyco.github.io/browser-solidity) -- an in browser Solidity IDE **Vapory Foundation**
 
 ### Nodes
   - [gvap](https://github.com/vaporyco/go-vapory) Go-Vapory
   - [parity](https://github.com/ethcore/parity) Rust-Vapory build in Rust
-  - [testrpc](https://github.com/vaporycojs/testrpc) Testing Node (vaporyjs-vm)
+  - [testrpc](https://github.com/vaporyjs/testrpc) Testing Node (vaporyjs-vm)
 
 ### Testing
  - [wafr](https://github.com/silentcicero/wafr) -- a super simple Solidity testing framework
